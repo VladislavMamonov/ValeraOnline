@@ -1,0 +1,26 @@
+<%= link_to 'LOG OUT', session_path, data: { method: :delete }, class: "submitForm" %>
+<%= link_to 'Records', stats_records_path, class: "submitForm" %>
+
+<%= render 'new_game' %>
+<p>
+      <strong>Health:</strong>
+      <%= @user.health%>/100<br><br>
+      <strong>Alcohol:</strong>
+      <%= @user.alcohol%>/100<br><br>
+      <strong>Happy:</strong>
+      <%= @user.happy%>/10<br><br>
+      <strong>Tired:</strong>
+      <%= @user.tired%>/100<br><br>
+      <strong>Money:</strong>
+      <%= @user.money%>$<br><br>
+
+      <% flash.each do |type, msg| %>
+        <div class="alert alert-info">
+          <%= msg %>
+          <%= render 'new_game' if msg == "You died."%>
+        </div>
+      <% end %>
+
+      
+        <%= render 'valera_actions/index'%><br><br>
+</p>
