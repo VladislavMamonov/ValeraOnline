@@ -1,0 +1,2 @@
+class ValeraActionsController < ApplicationController
+end
