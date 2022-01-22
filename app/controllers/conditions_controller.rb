@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ConditionsController < ApplicationController
   def show
     @valera_action = ValeraAction.find(params[:valera_action_id])

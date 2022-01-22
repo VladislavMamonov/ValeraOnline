@@ -1,0 +1,55 @@
+  [1m[35m (55.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "rails_starter_project_test"[0m
+  [1m[35m (404.4ms)[0m  [1m[35mCREATE DATABASE "rails_starter_project_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (1.8ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "conditions" CASCADE[0m
+  [1m[35m (13.2ms)[0m  [1m[35mCREATE TABLE "conditions" ("id" bigserial primary key, "attr_name" character varying, "min" integer, "max" integer, "attr_name_eff" character varying, "value_eff" integer, "valera_action_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (5.2ms)[0m  [1m[35mCREATE INDEX "index_conditions_on_valera_action_id" ON "conditions" ("valera_action_id")[0m
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "droptables" CASCADE[0m
+  [1m[35m (7.4ms)[0m  [1m[35mCREATE TABLE "droptables" ("id" bigserial primary key)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "stats_records" CASCADE[0m
+  [1m[35m (9.5ms)[0m  [1m[35mCREATE TABLE "stats_records" ("id" bigserial primary key, "name" character varying, "money" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (11.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying, "name" character varying, "password_digest" character varying, "health" integer, "alcohol" integer, "happy" integer, "tired" integer, "money" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "valera_actions" CASCADE[0m
+  [1m[35m (8.0ms)[0m  [1m[35mCREATE TABLE "valera_actions" ("id" bigserial primary key, "name" character varying, "health" integer, "alcohol" integer, "happy" integer, "tired" integer, "money" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (3.7ms)[0m  [1m[35mALTER TABLE "conditions" ADD CONSTRAINT "fk_rails_300031b3b4"
+FOREIGN KEY ("valera_action_id")
+  REFERENCES "valera_actions" ("id")
+[0m
+  [1m[35m (8.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20220121150302)[0m
+  [1m[35m (1.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20220119163627),
+(20220119170056),
+(20220119202940);
+
+[0m
+  [1m[35m (8.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "test"], ["created_at", "2022-01-21 16:25:31.109947"], ["updated_at", "2022-01-21 16:25:31.109947"]]
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "5a9372571c04bff16e8e294bd50e62e505c80e11"], ["created_at", "2022-01-21 16:25:31.123092"], ["updated_at", "2022-01-21 16:25:31.123092"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.5ms)[0m  [1m[35mALTER TABLE "droptables" DISABLE TRIGGER ALL;ALTER TABLE "stats_records" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "valera_actions" DISABLE TRIGGER ALL;ALTER TABLE "conditions" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (5.0ms)[0m  [1m[34m            SELECT schemaname || '.' || tablename
+            FROM pg_tables
+            WHERE
+              tablename !~ '_prt_' AND
+              tablename <> 'schema_migrations'
+  AND tablename <> 'ar_internal_metadata'
+ AND
+              schemaname = ANY (current_schemas(false))
+[0m
+  [1m[35m (3.0ms)[0m  [1m[34mselect table_name from information_schema.views where table_schema = 'rails_starter_project_test'[0m
+  [1m[35m (32.3ms)[0m  [1m[35mTRUNCATE TABLE "droptables", "stats_records", "users", "valera_actions", "conditions" RESTART IDENTITY RESTRICT;[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "droptables" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL;ALTER TABLE "stats_records" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "valera_actions" ENABLE TRIGGER ALL;ALTER TABLE "conditions" ENABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT[0m

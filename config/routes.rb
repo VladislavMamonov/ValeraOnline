@@ -1,3 +1,15 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get 'home/index'
+
+  resources :valera_actions do
+    resources :conditions
+  end
+  resource :session
+  resources :valera_actions
+  resources :users
+  resources :stats_records
+
+  root 'home#index'
 end

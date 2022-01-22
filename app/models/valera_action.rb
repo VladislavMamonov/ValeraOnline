@@ -1,5 +1,6 @@
+# frozen_string_literal: true
+
 class ValeraAction < ApplicationRecord
-  belongs_to :user
   validates :name, presence: true, uniqueness: true
   validates :health, presence: true
   validates :alcohol, presence: true
